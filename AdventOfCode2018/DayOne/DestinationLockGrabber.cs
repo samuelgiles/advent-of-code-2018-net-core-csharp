@@ -16,17 +16,29 @@ namespace AdventOfCode2018.DayOne
 
         public int ResultingFrequency()
         {
+            return InputInts().Sum();
+        }
+
+        public int FirstDuplicateValue()
+        {
             List<int> inputInts = InputInts();
-            int startingFrequency = inputInts.First();
-            int finalValue = startingFrequency;
-            List<int> remainingFrequenciesToApply = InputInts().GetRange(index: 1, count: inputInts.Count()-1);
+            HashSet<int> seenFrequences = new HashSet<int>();
+            int finalValue = 0;
 
-            foreach (int frequencyToApply in remainingFrequenciesToApply)
+            while (true)
             {
-                finalValue += frequencyToApply;
-            }
+                foreach (int frequencyToApply in InputInts())
+                {
+                    finalValue = finalValue + frequencyToApply;
 
-            return finalValue;
+                    if (seenFrequences.Contains(finalValue))
+                    {
+                        return finalValue;
+                    }
+
+                    seenFrequences.Add(finalValue);
+                }
+            }
         }
 
         private List<int> InputInts()
@@ -72,14 +84,14 @@ namespace AdventOfCode2018.DayOne
         {
             public InputLine(string inputLine)
             {
-                line = inputLine;
+                Line = inputLine;
             }
 
-            private string line { get; }
+            private string Line { get; }
 
             public int AsInt()
             {
-                return int.Parse(line);
+                return int.Parse(Line);
             }
         }
     }
