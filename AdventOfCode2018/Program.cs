@@ -1,5 +1,6 @@
 ﻿using System;
 using AdventOfCode2018.DayOne;
+using AdventOfCode2018.DayTwo;
 
 namespace AdventOfCode2018
 {
@@ -10,10 +11,15 @@ namespace AdventOfCode2018
             Console.WriteLine("Enter the day you'd like to run (e.g 1):");
             string keyPressed = Console.ReadKey(true).Key.ToString();
 
-            if(keyPressed == "D1")
+            if (keyPressed == "D1")
             {
                 Console.WriteLine("Running day one...");
                 runDayOne();
+            }
+            else if (keyPressed == "D2")
+            {
+                Console.WriteLine("Running day two...");
+                runDayTwo();
             }
             else
             {
@@ -31,6 +37,17 @@ namespace AdventOfCode2018
 
             Console.WriteLine("Resulting frequency:" + resultingFrequency.ToString());
             Console.WriteLine("First duplicate value:" + firstDuplicateValue.ToString());
+        }
+
+        private static void runDayTwo()
+        {
+            string input = System.IO.File.ReadAllText("./DayTwo/DayTwoInput.txt");
+
+            BoxChecksumCalculator boxChecksumCalculator = new BoxChecksumCalculator(input);
+            Console.WriteLine("Checksum for box IDs:" + boxChecksumCalculator.Checksum().ToString());
+
+            CommonBoxIdCalculator commonBoxIdCalculator = new CommonBoxIdCalculator(input);
+            Console.WriteLine("Common box ID characters:" + commonBoxIdCalculator.CommonLettersOnCorrectBoxId());
         }
     }
 }
