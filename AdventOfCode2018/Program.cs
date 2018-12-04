@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using AdventOfCode2018.DayOne;
+using AdventOfCode2018.DayThree;
 using AdventOfCode2018.DayTwo;
 
 namespace AdventOfCode2018
@@ -20,6 +22,11 @@ namespace AdventOfCode2018
             {
                 Console.WriteLine("Running day two...");
                 runDayTwo();
+            }
+            else if (keyPressed == "D3")
+            {
+                Console.WriteLine("Running day three...");
+                runDayThree();
             }
             else
             {
@@ -48,6 +55,14 @@ namespace AdventOfCode2018
 
             CommonBoxIdCalculator commonBoxIdCalculator = new CommonBoxIdCalculator(input);
             Console.WriteLine("Common box ID characters:" + commonBoxIdCalculator.CommonLettersOnCorrectBoxId());
+        }
+
+        private static void runDayThree()
+        {
+            string input = System.IO.File.ReadAllText("./DayThree/Input.txt");
+
+            ClaimsParser claimsParser = new ClaimsParser(input);
+            List<Claim> claims = claimsParser.ParsedClaims();
         }
     }
 }
