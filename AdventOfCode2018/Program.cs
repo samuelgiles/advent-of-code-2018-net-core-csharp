@@ -60,9 +60,15 @@ namespace AdventOfCode2018
         private static void runDayThree()
         {
             string input = System.IO.File.ReadAllText("./DayThree/Input.txt");
+            int claimsCount = 2;
 
             ClaimsParser claimsParser = new ClaimsParser(input);
             List<Claim> claims = claimsParser.ParsedClaims();
+            Fabric fabric = new Fabric(1000, 1000);
+            FabricWithClaims fabricWithClaims = new FabricWithClaims(fabric, claims);
+            FabricWithAtleastClaimsQuery fabricWithAtleastClaimsQuery = new FabricWithAtleastClaimsQuery(fabricWithClaims, claimsCount);
+
+            Console.WriteLine($"Square inches with at-least {claimsCount.ToString()} claims: {fabricWithAtleastClaimsQuery.Results().ToString()}");
         }
     }
 }

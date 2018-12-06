@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace AdventOfCode2018.DayThree
 {
     public class Claim
@@ -10,6 +12,21 @@ namespace AdventOfCode2018.DayThree
             Width = width;
             Height = height;
             ClaimId = claimId;
+        }
+
+        public List<FabricPosition> Positions() {
+            List<FabricPosition> positions = new List<FabricPosition>();
+
+            for(var x = 0; x < Width; x++) {
+                for(var y = 0; y < Height; y++) {
+                    int calculatedX = x + InchesFromLeft;
+                    int calculatedY = y + InchesFromTop;
+
+                    positions.Add(new FabricPosition(calculatedX, calculatedY));
+                }
+            }
+
+            return positions;
         }
 
         private int ClaimId { get; }
