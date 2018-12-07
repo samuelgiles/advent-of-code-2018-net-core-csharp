@@ -7,8 +7,14 @@
 
   <ItemGroup>
     <Folder Include="DayOne\" />
+    <Folder Include="DayTwo\" />
+    <Folder Include="DayThree\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Program.cs" />
+    <Compile Remove="DayOne\Program.cs" />
+    <Compile Remove="DayThree\Input.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DayThree\Input.txt" />
   </ItemGroup>
 </Project>

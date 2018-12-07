@@ -29,7 +29,7 @@ namespace AdventOfCode2018.DayThree
             return positions;
         }
 
-        private int ClaimId { get; }
+        public int ClaimId { get; }
         private int InchesFromLeft { get; }
         private int InchesFromTop { get; }
         private int Width { get; }

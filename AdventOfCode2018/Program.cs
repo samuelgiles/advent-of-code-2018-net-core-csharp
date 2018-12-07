@@ -69,6 +69,10 @@ namespace AdventOfCode2018
             FabricWithAtleastClaimsQuery fabricWithAtleastClaimsQuery = new FabricWithAtleastClaimsQuery(fabricWithClaims, claimsCount);
 
             Console.WriteLine($"Square inches with at-least {claimsCount.ToString()} claims: {fabricWithAtleastClaimsQuery.Results().ToString()}");
+
+            ClaimsWithNoOverlapQuery claimsWithNoOverlapQuery = new ClaimsWithNoOverlapQuery(fabricWithClaims);
+            int foundClaimId = claimsWithNoOverlapQuery.Results()[0];
+            Console.WriteLine($"ID of only claim that doesn't overlap: {foundClaimId.ToString()}");
         }
     }
 }
